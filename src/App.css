@@ -14,25 +14,45 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(5px + 2vmin);
+  /* color: white; */
 }
 
-.App-link {
-  color: #61dafb;
+.card {
+  text-align: center;
+  width: 200px;
+  cursor: pointer;
+  margin: 0 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card.selected {
+  border: 2px solid black;
+}
+
+.coin-icon {
+  font-size: 50px;
+}
+
+.coin-icon .fa-bitcoin {
+  color: #f2a900;
+}
+
+.coin-icon .fa-ethereum {
+  color: #5477bb;
+}
+
+.form {
+  max-width: 500px;
+  margin: 50px auto;
+}
+
+.form .fa-exchange-alt {
+  line-height: unset;
+  padding: 0 10px;
 }
