@@ -2,33 +2,33 @@ import React, { useState, useEffect } from "react";
 import CryptoTile from "./CryptoTile";
 import ExchangeForm from "./ExchangeForm";
 
+export function getExchangeRate() {
+  return fetch("https://btc-exchange-rate.herokuapp.com/currencies/BTC").then(
+    (data) => data.json()
+  );
+}
+
+export function getRequests() {
+  return fetch("https://btc-exchange-rate.herokuapp.com/requests").then(
+    (data) => data.json()
+  );
+}
+
 const Home = () => {
   const [bitcoinPrice, setBitcoinPrice] = useState(null);
   const [requests, setRequests] = useState(null);
-
-  function getExchangeRate() {
-    return fetch("https://btc-exchange-rate.herokuapp.com/currencies/BTC").then(
-      (data) => data.json()
-    );
-  }
-
-  function getRequests() {
-    return fetch("https://btc-exchange-rate.herokuapp.com/requests").then(
-      (data) => data.json()
-    );
-  }
 
   useEffect(() => {
     const mounted = true;
     getExchangeRate().then((items) => {
       if (mounted) {
         setBitcoinPrice(items.data.rates.ZAR);
+        console.log(bitcoinPrice);
       }
     });
     getRequests().then((items) => {
       if (mounted) {
         setRequests(items);
-        console.log(requests);
       }
     });
     return mounted === false;
