@@ -1,15 +1,15 @@
 import React from "react";
 
-const CryptoTile = ({ data, selected, tileClicked }) => {
-  const { title, rate, icon } = data;
-
-  const handleClick = () => tileClicked(data);
+const CryptoTile = ({ rate }) => {
+  const randPrice = Number(rate);
   return (
-    <div onClick={handleClick} className={`card ${selected && "selected"}`}>
+    <div className="card">
       <div className="card-body">
-        <div className="coin-icon mb-3">{icon}</div>
-        <div>{title}</div>
-        <div>@ {rate}</div>
+        <div className="coin-icon mb-3">
+          <i className="fab fa-bitcoin" />
+        </div>
+        <div>1 Bitcoin (BTC)</div>
+        <div>= R {randPrice.toFixed(2)}</div>
       </div>
     </div>
   );
