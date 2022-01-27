@@ -1,6 +1,11 @@
-const { getExchangeRate } = require("./components/Home");
+import { getExchangeRate, getRequests } from "./components/Home";
 
-test("Get exchange rate for Bitcoin to Rands", () => {
-  const currencies = getExchangeRate();
-  expect();
+test("We should not have an empty array returned from the web api", () => {
+  const exchangeRateJson = getExchangeRate();
+  expect(exchangeRateJson).not.toEqual([]);
+});
+
+test("We should have the data object returned from the web api", () => {
+  const requestsJson = getRequests();
+  expect(requestsJson).not.toEqual([]);
 });
